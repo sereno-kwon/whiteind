@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>White Industries Korea</title>
+<meta name="robots" content="noindex">
+<script>
+  // 하위 주소(/cld, /en/r30 ...)를 원페이지 섹션으로 연결
+  // github.io 미리보기(/whiteind/)와 자체 도메인(/) 모두 동작
+  var base = location.hostname.slice(-10) === 'github.io' ? '/whiteind/' : '/';
+  var parts = location.pathname.slice(base.length).replace(/\/$/, '').toLowerCase().split('/');
+  var lang = (parts[0] === 'en' || parts[0] === 'ja') ? parts.shift() + '/' : '';
+  var key = parts.join('/');
+  var alias = { 'hub':'hubs', 'cld':'hubs', 'xmr':'hubs', 't11':'hubs', 'mi5':'hubs', 'met':'hubs', 'brompton':'hubs', 'track':'hubs', 'boost':'hubs', 'c157':'hubs',
+                'crank':'cranks', 'r30':'cranks', 'g30':'cranks', 'm30':'cranks', 'a30':'cranks', 'mr30':'cranks', 'square-taper':'cranks',
+                'freewheel':'drivetrain', 'freewheels':'drivetrain', 'eno':'drivetrain', 'chainring':'drivetrain', 'chainrings':'drivetrain', 'vbc':'drivetrain', 'bb':'drivetrain', 'bottom-bracket':'drivetrain',
+                'headset':'headsets', 'compatibility':'fit', 'fit-guide':'fit', 'hub-guide':'fit', 'about':'brand', 'history':'story', 'contact':'showroom', 'dealer':'dealers', 'lineup':'range' };
+  var map = { brand:1, range:1, hubs:1, cranks:1, drivetrain:1, headsets:1, fit:1, story:1, showroom:1, dealers:1 };
+  key = alias[key] || key;
+  location.replace(base + lang + (map[key] ? '#' + key : ''));
+</script>
+<style>body{background:#fff}@media (prefers-color-scheme:dark){body{background:#101114}}</style>
+</head>
+<body></body>
+</html>
